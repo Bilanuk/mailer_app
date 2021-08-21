@@ -1,6 +1,14 @@
 class UserController < ApplicationController
+  def index
+    @users = User.all
+  end
+
+  def show
+    #to do
+  end
+
   def new
-    @users= User.new
+    @user= User.new
   end
 
   def create
@@ -8,14 +16,13 @@ class UserController < ApplicationController
     if @user.save
       redirect_to root_path
     else
-      render plain: "bruh"
-      # render :new
+      render :new
     end
   end
 
   private
 
   def user_params
-    params.permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end

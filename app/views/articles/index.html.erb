@@ -1,3 +1,5 @@
-<div class="">
-  <h1>Welcome to Articles#index</h1>
-</div>
+<% @users.each do |user| %>
+  <% if user.id %>
+      <p><%= user.email %></p>
+  <% end %>
+<% end %>
