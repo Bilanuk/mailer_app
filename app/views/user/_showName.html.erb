@@ -1,0 +1,6 @@
+<% if request.env['PATH_INFO'] != new_user_path %>
+  <a href="<%= user_path(@user) %>" class="m-1 btn btn-light" role="button">
+    Hello <%= @user.userName %>!
+  </a>
+<%end %>
+
