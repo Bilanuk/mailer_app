@@ -29,11 +29,15 @@
 
         </ul>
         <div class="d-flex">
-
+          <% if session[:user_id] %>
             <%= render "user/showName" %>
+          <% else %>
+            <a href="<%= new_user_path %>" class="m-1 btn btn-primary" role="button">Sign up</a>
+            <a href="<%= new_session_path %>" class="m-1 btn btn-white" role="button">
+              Log in
+            </a>
+          <% end %>
 
-          <a href="<%= new_user_path %>" class="m-1 btn btn-primary" role="button">Sign up</a>
-          <button type="button" class="btn btn-light">Log in</button>
         </div>
       </div>
     </div>

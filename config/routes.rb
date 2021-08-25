@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   root "user#index"
-  resources :articles, :user
+  delete "logout", to: "sessions#destroy"
+  resources :articles, :user, :sessions
 end

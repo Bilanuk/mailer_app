@@ -1,6 +1,14 @@
-<% if request.env['PATH_INFO'] != new_user_path %>
-  <a href="<%= user_path(@user) %>" class="m-1 btn btn-light" role="button">
+<% if session[:user_id]%>
+  <a href="<%= user_path(session[:user_id]) %>" class="m-1 btn btn-primary" role="button">
     Hello <%= @user.userName %>!
   </a>
-<%end %>
+  <%#= button_to "Log out", logout_path, method: :delete %>
+  <a href="<%= logout_path %>" class="m-1 btn btn-danger" role="button" data-method="delete">
+    Log out
+  </a>
+<% else %>
+  <a href="<%= %>" class="m-1 btn btn-light" role="button">
+    No user
+  </a>
+<% end %>
 
